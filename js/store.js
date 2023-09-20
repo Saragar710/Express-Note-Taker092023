@@ -10,9 +10,9 @@ async function callStat() {
   console.log(`This directory is owned by ${stats.uid}`);
 }
 
-// app.get('/',(req,res) => 
-//     res.sendFile(path.join(_dirname, '/notes.html'))
-// );
-// app.get('*',(req,res) => 
-//     res.sendFile(path.join(_dirname, '/index.html'))
-// );
+app.get('/notes',(req,res) => 
+    res.sendFile(path.join(_dirname, '/notes.html'))
+);
+app.get('*',(req,res) => 
+    res.sendFile(path.join(_dirname, '/index.html'))
+);
