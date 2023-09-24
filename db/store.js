@@ -36,29 +36,58 @@ class Store {
       } 
       return displayNotes
     });
+    addNote(note){
+      let {title, text, uuidV4} = req.body;
 
-  addNote(note){
-    let newNote;
-
-     
-        newNote = {
+        let newNote = {
           title,
           text,
-          uuid,
+          uuid_id: uuidV4(),
+
+          try {
+            newNote = [].concat(JSON.parse(newNote));
+        } catch (err) {
+          throw newError("An error has occured... Check code!")
         }
-        try {
-          newNote = 
-      } catch (err) {
-        throw new Error("")
       }
-      return getNotes
-      .then(notes, newNote)
-      .then(writeFileDisplay)
-      .then(updatedNotes)
-      return updatedNotes =>
-      ,then(() => 
-      return newNote
-      );
+    }
+  // addNote(note){
+  //   let  {title, text, uuidV4} = req.body;
+  //    try
+
+  //       newNote = {
+  //         title,
+  //         text,
+  //         uuid, 
+  //       }
+  //       try {
+  //         newNote = 
+  //     } catch (err) {
+  //       throw new Error("An error has occured...")
+  //     }
+  //     return getNotes
+  //     .then(notes, newNote)
+  //     .then(writeFileDisplay)
+  //     .then(updatedNotes, notes.filter)
+  //     return updatedNotes =>
+  //     ,then(() => 
+  //     return newNote
+  //     );
+
+  // addNote =(note) => {
+  //   let newNote = {
+  //     title,
+  //     text,
+  //     uuid,
+  //   };
+
+  //   return this.getNotes()
+  //   .then(notes => {
+  //     notes.push(newNote);
+  //     return notes;
+  //   })
+    
+  // }
 //defie a note -- destructing method
 
 //what if there is 'no' text or title -- "throw new Error()"
