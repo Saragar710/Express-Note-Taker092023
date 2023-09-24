@@ -26,23 +26,44 @@ class Store {
 
   getNotes(){
     return this.read().then((notes) => {
-      let diplayNotes;
+      let displayNotes;
 
       //If notes isnt an array or cant be turned into one, send back an empty array
       try {
-        diplayNotes = [].concat(JSON.parse(notes));
+        displayNotes = [].concat(JSON.parse(notes));
       } catch (err) {
-        diplayNotes = [];
+        displayNotes = [];
       } 
-      return diplayNotes
+      return displayNotes
     });
 
   addNote(note){
+    let newNote;
+
+     
+        newNote = {
+          title,
+          text,
+          uuid,
+        }
+        try {
+          newNote = 
+      } catch (err) {
+        throw new Error("")
+      }
+      return getNotes
+      .then(notes, newNote)
+      .then(writeFileDisplay)
+      .then(updatedNotes)
+      return updatedNotes =>
+      ,then(() => 
+      return newNote
+      );
 //defie a note -- destructing method
 
 //what if there is 'no' text or title -- "throw new Error()"
 
-//newNote = {}
+//newNote = {title, text, uuid} define all properties in curly bracket
 
 //Get all nots, add the new note, write all the updated notes, return the newNote
 

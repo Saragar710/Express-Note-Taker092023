@@ -16,7 +16,9 @@ const store = require('../db/store');
  router.post('/notes',  (req,res) => {
     store
     .addNote(req.body)
-    .then()//finish
+    .then((notes) => {
+        return (newNotes)
+    })//finish
     .catch((err) => res.status(500).json(err))
     
  })
