@@ -38,11 +38,12 @@ class Store {
     });
 
 
-    addNote(note){
+    addNote(note) 
+    {
       let {title, text, uuid} = req.body
 
       if (req.body) {
-        let newNotes = {
+        let newNotes = {  
           title,
           text,
           uuid_id: uuidV4(),// or note_id:uuidV4?
@@ -57,9 +58,10 @@ class Store {
         writeAndAppend(newNotes, 'db/db.json');
         return this.getNotes()
         .then(note, newNotes),
-        .then (updateNotes.filter(note)) => {
+        .then(updateNotes => {
+        note.filter(note)
           note.id ==! id
-        }
+    })
       }.then(() newNote)
 
     };
