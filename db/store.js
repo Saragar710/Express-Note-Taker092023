@@ -37,26 +37,54 @@ class Store {
       return displayNotes
     });
 
-    addNote(note){
-      let {title, text, uuidV4} = req.body;
 
-        let newNote = {
+    addNote(note){
+      let {title, text, uuid} = req.body
+
+      if (req.body) {
+        let newNotes = {
           title,
           text,
-          uuid_id: uuidV4(),
-
-          try {
-            newNote = [].concat(JSON.parse(newNote)),
-        } catch (err) {
-          throw newError("An error has occured... Check code!")
+          uuid_id: uuidV4(),// or note_id:uuidV4?
+        };
+        try {
+          newNotes = (!title, text, uuid).concat(JSON.parse(newNotes));
+    
+        } catch  (err){
+          throw newError("An error has occured, check your code!")
         }
-        return getNotes
-      }
-    }
+  }
+        writeAndAppend(newNotes, 'db/db.json');
+        return this.getNotes()
+        .then(note, newNotes),
+        .then (updateNotes.filter(note)) => {
+          note.id ==! id
+        }
+      }.then(() newNote)
 
-   }
+    };
+  }
+//}
+//     addNote(note){
+//       let {title, text, uuidV4} = req.body;
 
- }
+//         let newNote = {
+//           title,
+//           text,
+//           uuid_id: uuidV4(),
+
+//           try {
+//             newNote = [].concat(JSON.parse(newNote)),
+//         } catch (err) {
+//           throw newError("An error has occured... Check code!")
+//         }
+//         return getNotes 
+//       }
+//     }
+
+//    }
+
+//  }
 
 
   // addNote(note){
