@@ -36,6 +36,7 @@ class Store {
       } 
       return displayNotes
     });
+
     addNote(note){
       let {title, text, uuidV4} = req.body;
 
@@ -45,12 +46,19 @@ class Store {
           uuid_id: uuidV4(),
 
           try {
-            newNote = [].concat(JSON.parse(newNote));
+            newNote = [].concat(JSON.parse(newNote)),
         } catch (err) {
           throw newError("An error has occured... Check code!")
         }
+        return getNotes
       }
     }
+
+   }
+
+ }
+
+
   // addNote(note){
   //   let  {title, text, uuidV4} = req.body;
   //    try
@@ -88,6 +96,8 @@ class Store {
   //   })
     
   // }
+
+
 //defie a note -- destructing method
 
 //what if there is 'no' text or title -- "throw new Error()"
@@ -100,14 +110,12 @@ class Store {
 //.then w/motes, newNotes
 //.then updatedNotes =>   notes.filer...note => note.id !== id
 //.then(() newNote) 
-  }
-   
-  }
+  
 
 
 
 
-}
+//}
 
 
 module.exports = new Store();

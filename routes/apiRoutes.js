@@ -17,7 +17,7 @@ const store = require('../db/store');
     store
     .addNote(req.body)
     .then((notes) => {
-        return (newNotes)
+        return res.json(newNotes)
     })//finish
     .catch((err) => res.status(500).json(err))
     
