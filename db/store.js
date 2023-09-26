@@ -36,7 +36,7 @@ class Store {
       } 
       return displayNotes
     });
-
+    
 
     addNote(note) 
     {
@@ -65,7 +65,19 @@ class Store {
       }.then(() newNote)
 
     };
+  
   }
+
+addNote(note){
+  let {title, text, uuid} = req.body;
+  if (req.body) {
+    title,
+    text,
+    uuid_id: uuidV4(),
+  }
+  
+  write.then(note)
+}
 //}
 //     addNote(note){
 //       let {title, text, uuidV4} = req.body;
