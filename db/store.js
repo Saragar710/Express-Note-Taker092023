@@ -36,7 +36,7 @@ class Store {
       } 
       return displayNotes
     });
-    
+  }
 
     addNote(note) 
     {
@@ -62,11 +62,11 @@ class Store {
         note.filter(note)
           note.id ==! id
     })
-      }.then(() newNote)
+      }.then((), newNote)
 
     };
   
-  }
+  
 
 addNote(note){
   let {title, text, uuid} = req.body;
