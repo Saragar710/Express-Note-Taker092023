@@ -16,12 +16,10 @@ const store = require('../db/store');
  router.post('/notes',  (req,res) => {
     store
     .addNote(req.body)
-    .then((notes) => {
-        return res.json(newNotes)
-    })//finish
+    .then((note) =>  res.json(note))
     .catch((err) => res.status(500).json(err))
     
- })
+ });
 
 
 

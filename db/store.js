@@ -3,7 +3,7 @@ const util = require('util');
 const fs = require('fs');
 
 const uuidV4 = require('uuid');
-const { deepStrictEqual } = require('assert');
+
 
 const readFileDisplay = util.promisify(fs.readFile);
 const writeFileDisplay = util.promisify(fs.writeFile);
@@ -40,44 +40,42 @@ class Store {
 
     addNote(note) 
     {
-      let {title, text, uuid} = req.body
+      let {title, text} = note
 
-      if (req.body) {
-        let newNotes = {  
-          title,
-          text,
-          uuid_id: uuidV4(),// or note_id:uuidV4?
-        };
-        try {
-          newNotes = (!title, text, uuid).concat(JSON.parse(newNotes));
+      if (!title || !text) {
+        throw new Error("No title or text. Please enter a title and a text.")
+        // let newNotes = {  
+        //   title,
+        //   text,
+        //   uuid_id: uuidV4(),// or note_id:uuidV4?
+        // };
+        // try {
+        //   newNotes = (!title, text, uuid).concat(JSON.parse(newNotes));
     
-        } catch  (err){
-          throw newError("An error has occured, check your code!")
-        }
+        // } catch  (err){
+        //   throw newError("An error has occured, check your code!")
+        // }
   }
-        writeAndAppend(newNotes, 'db/db.json');
+  let newNote = {  
+      title,
+      text,
+      id: uuidV4(),// or note_id:uuidV4?
+     };
+     // defined original note, put conditional for no notes, defined a new note.
+     //ready to return
+
+       // writeAndAppend(newNote, 'db/db.json');
         return this.getNotes()
-        .then(note, newNotes),
-        .then(updateNotes => {
-        note.filter(note)
-          note.id ==! id
-    })
-      }.then((), newNote)
+        .then((notes) => [...notes, newNote])
+        .then((updatedNotes) => this.write(updatedNotes))
+        .then(() => newNote)
 
     };
-  
+}
   
 
-addNote(note){
-  let {title, text, uuid} = req.body;
-  if (req.body) {
-    title,
-    text,
-    uuid_id: uuidV4(),
-  }
-  
-  write.then(note)
-}
+//  
+
 //}
 //     addNote(note){
 //       let {title, text, uuidV4} = req.body;
