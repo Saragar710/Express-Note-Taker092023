@@ -8,13 +8,6 @@ const uuidV4 = require('uuid');
 const readFileDisplay = util.promisify(fs.readFile);
 const writeFileDisplay = util.promisify(fs.writeFile);
 
-
-
-// async function callStat() {
-//   const stats = await stat('.');
-//   console.log(`This directory is owned by ${stats.uid}`);
-// }
-
 class Store {
   read() {
     return readFileDisplay('db/db.json', 'utf8');
@@ -44,17 +37,7 @@ class Store {
 
       if (!title || !text) {
         throw new Error("No title or text. Please enter a title and a text.")
-        // let newNotes = {  
-        //   title,
-        //   text,
-        //   uuid_id: uuidV4(),// or note_id:uuidV4?
-        // };
-        // try {
-        //   newNotes = (!title, text, uuid).concat(JSON.parse(newNotes));
-    
-        // } catch  (err){
-        //   throw newError("An error has occured, check your code!")
-        // }
+        
   }
   let newNote = {  
       title,
@@ -74,70 +57,6 @@ class Store {
 }
   
 
-//  
-
-//}
-//     addNote(note){
-//       let {title, text, uuidV4} = req.body;
-
-//         let newNote = {
-//           title,
-//           text,
-//           uuid_id: uuidV4(),
-
-//           try {
-//             newNote = [].concat(JSON.parse(newNote)),
-//         } catch (err) {
-//           throw newError("An error has occured... Check code!")
-//         }
-//         return getNotes 
-//       }
-//     }
-
-//    }
-
-//  }
-
-
-  // addNote(note){
-  //   let  {title, text, uuidV4} = req.body;
-  //    try
-
-  //       newNote = {
-  //         title,
-  //         text,
-  //         uuid, 
-  //       }
-  //       try {
-  //         newNote = 
-  //     } catch (err) {
-  //       throw new Error("An error has occured...")
-  //     }
-  //     return getNotes
-  //     .then(notes, newNote)
-  //     .then(writeFileDisplay)
-  //     .then(updatedNotes, notes.filter)
-  //     return updatedNotes =>
-  //     ,then(() => 
-  //     return newNote
-  //     );
-
-  // addNote =(note) => {
-  //   let newNote = {
-  //     title,
-  //     text,
-  //     uuid,
-  //   };
-
-  //   return this.getNotes()
-  //   .then(notes => {
-  //     notes.push(newNote);
-  //     return notes;
-  //   })
-    
-  // }
-
-
 //defie a note -- destructing method
 
 //what if there is 'no' text or title -- "throw new Error()"
@@ -151,11 +70,6 @@ class Store {
 //.then updatedNotes =>   notes.filer...note => note.id !== id
 //.then(() newNote) 
   
-
-
-
-
-//}
 
 
 module.exports = new Store();
