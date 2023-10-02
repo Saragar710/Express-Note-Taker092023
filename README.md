@@ -9,7 +9,7 @@ Simply type npm start and the app with do the rest.
 
 ## Usage
 ![Alt text](image.png)
-![Alt text](image-1.png)
+![cd](image-1.png)
 
 ## Credits
 I had help from a tutor: Sandy Smith
