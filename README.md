@@ -10,6 +10,7 @@ Simply type npm start and the app with do the rest.
 ## Usage
 ![Alt text](image.png)
 ![cd](image-1.png)
+![Alt text](image-2.png) /* Let me know if I am suppose to do something else so you know it was deployed through Heroku*/
 
 ## Credits
 I had help from a tutor: Sandy Smith
