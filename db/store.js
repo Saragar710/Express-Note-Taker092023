@@ -57,19 +57,4 @@ class Store {
 }
   
 
-//defie a note -- destructing method
-
-//what if there is 'no' text or title -- "throw new Error()"
-
-//newNote = {title, text, uuid} define all properties in curly bracket
-
-//Get all nots, add the new note, write all the updated notes, return the newNote
-
-////return getNotes, 
-//.then w/motes, newNotes
-//.then updatedNotes =>   notes.filer...note => note.id !== id
-//.then(() newNote) 
-  
-
-
 module.exports = new Store();
