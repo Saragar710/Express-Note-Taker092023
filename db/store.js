@@ -2,7 +2,7 @@
 const util = require('util');
 const fs = require('fs');
 
-const { v4: uuid } = require('uuid');
+const { v4: uuid4 } = require('uuid');
 
 
 const readFileDisplay = util.promisify(fs.readFile);
@@ -39,10 +39,7 @@ class Store {
         throw new Error("No title or text. Please enter a title and a text.")
         
   }
-  let newNote = {  
-      title,
-      text,
-      id: uuid(),// or note_id:uuidV4?
+  let newNote = { title, text, id: uuid(),
      };
      // defined original note, put conditional for no notes, defined a new note.
      //ready to return
