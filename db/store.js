@@ -6,53 +6,56 @@ const { v4: uuid } = require('uuid');
 
 //const uuidV1 = require('uuid/v1');
 
-const readFileDisplay = util.promisify(fs.readFile);
-const writeFileDisplay = util.promisify(fs.writeFile);
+const readFileAsync = util.promisify(fs.readFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
 class Store {
   read() {
-    return readFileDisplay('db/db.json', 'utf8');
+    return readFileAsync('db/db.json', 'utf8');
   }
 
   write(note) {
-    return writeFileDisplay('db/db.json', JSON.stringify(note));
+    return writeFileAsync('db/db.json', JSON.stringify(note));
   }
 
-  getNotes(){
+  getNotes() {
     return this.read().then((notes) => {
-      let displayNotes;
+      let parsedNotes;
 
-      //If notes isnt an array or cant be turned into one, send back an empty array
+      // If notes isn't an array or can't be turned into one, send back a new empty array
       try {
-        displayNotes = [].concat(JSON.parse(notes));
+        parsedNotes = [].concat(JSON.parse(notes));
       } catch (err) {
-        displayNotes = [];
-      } 
-      return displayNotes
+        parsedNotes = [];
+      }
+
+      return parsedNotes;
     });
   }
 
-    addNote(note) 
-    {
-      let {title, text} = note
+  addNote(note) {
+    const { title, text } = note;
 
-      if (!title || !text) {
-        throw new Error("No title or text. Please enter a title and a text.")
-        
+    if (!title || !text) {
+      throw new Error("Note 'title' and 'text' cannot be blank");
+    }
+
+    // Add a unique id to the note using uuid package
+    const newNote = { title, text, id: uuid() };
+
+    // Get all notes, add the new note, write all the updated notes, return the newNote
+    return this.getNotes()
+      .then((notes) => [...notes, newNote])
+      .then((updatedNotes) => this.write(updatedNotes))
+      .then(() => newNote);
   }
-  let newNote = { title, text, id: uuid(),
-     };
-     // defined original note, put conditional for no notes, defined a new note.
-     //ready to return
 
-       // writeAndAppend(newNote, 'db/db.json');
-        return this.getNotes()
-        .then((notes) => [...notes, newNote])
-        .then((updatedNotes) => this.write(updatedNotes))
-        .then(() => newNote)
-
-    };
+  removeNote(id) {
+    // Get all notes, remove the note with the given id, write the filtered notes
+    return this.getNotes()
+      .then((notes) => notes.filter((note) => note.id !== id))
+      .then((filteredNotes) => this.write(filteredNotes));
+  }
 }
-  
 
 module.exports = new Store();
