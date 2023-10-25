@@ -2,7 +2,7 @@
 const util = require('util');
 const fs = require('fs');
 
-const uuidV4 = require('uuid');
+const uuidV4 = require('uuid/v4');
 
 
 const readFileDisplay = util.promisify(fs.readFile);
