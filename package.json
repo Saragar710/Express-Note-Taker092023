@@ -1,23 +1,17 @@
 {
+  "name": "express-note-taker092023",
+  "version": "1.0.0",
+  "description": "This app will help you organize you day, week or month.  You can add notes as reminders so you will never miss another appointment. With a little more time I would like to add code to set reminders and alarms to also remind you when you have an upcoming event. For this app I learned how to tie front end and backend together. It's not perfect, but I will continue to learn as we go along.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "uuid": "^9.0.1"
-  },
-  "name": "express-note-taker092023",
-  "description": "An easy way to take notes",
-  "version": "1.0.0",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "Saragar710"
-  },
-  "keywords": [
-    "express",
-    "notes"
-  ],
-  "author": "Sara Garcia",
-  "license": "ISC"
+  }
 }
