@@ -2,7 +2,7 @@
 const util = require('util');
 const fs = require('fs');
 
-const uuidV4 = require('uuid/v4');
+const { v4: uuid } = require('uuid');
 
 
 const readFileDisplay = util.promisify(fs.readFile);
@@ -42,7 +42,7 @@ class Store {
   let newNote = {  
       title,
       text,
-      id: uuidV4(),// or note_id:uuidV4?
+      id: uuid(),// or note_id:uuidV4?
      };
      // defined original note, put conditional for no notes, defined a new note.
      //ready to return
